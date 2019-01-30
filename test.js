@@ -1,10 +1,26 @@
 var botaopesquisar = document.querySelector("#pesquisar");
-botaopesquisar.addEventListener("click", function(){         //Adicionando um evento ao clicar no botão
+
+botaopesquisar.addEventListener("click", function(){          //Adicionando um evento ao clicar no botão
+    atribuir();                   // Chama a função que importa os dados da Empresa
+
+
+});
+
+document.addEventListener("keyup", function(a){         //Adicionando um evento ao apertar enter
+    if (a.keyCode === 13) {
+        document.getElementById("pesquisar");
+        atribuir();
+      }
+});
+
+
+
+function atribuir(){                 // Função que importa os dados da Empresa
   var acao = nome.value;             // Variável que recebe o nome digitado pelo usuário
   importarAPI(acao);                 // Chama a função que importa o latestPrice da API
   importarAPIcompany(acao);          // Chama a função que importa os dados da Empresa
+}
 
-});
 function importarAPI(acao){
 
   var xhr = new XMLHttpRequest();                //Acessar a API através de AJAX
